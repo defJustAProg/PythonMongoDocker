@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  web:
+    build: ./web
+    ports:
+      - "8008:8008"
+    
+    links:
+      - db
+
+  db:
+    build: ./db
+    volumes:
+      - .:/dbdir
+    ports:
+      - 27017:27017
